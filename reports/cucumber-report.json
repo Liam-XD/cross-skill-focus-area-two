@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 811432208
+              "duration": 1031709124
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 449407292
+              "duration": 676395542
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 65555000
+              "duration": 60060583
             }
           },
           {
@@ -53,7 +53,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 84819375
+              "duration": 92951082
             }
           },
           {
@@ -66,7 +66,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4219666
+              "duration": 4789832
             }
           },
           {
@@ -79,7 +79,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2363875
+              "duration": 2475708
             }
           },
           {
@@ -87,7 +87,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 145543957
+              "duration": 132331166
             }
           }
         ],
@@ -101,5 +101,82 @@
     "name": "User Login",
     "tags": [],
     "uri": "src/tests/features/login.feature"
+  },
+  {
+    "description": "User story 2:\nAs a logged-in user, I want to complete the purchase of an item from the product catalog so that I can receive my desired product.",
+    "elements": [
+      {
+        "description": "",
+        "id": "complete-a-purchase;user-adds-an-item-to-their-cart",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "User adds an item to their cart",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 643838416
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I am on the product catalog page",
+            "match": {
+              "location": "src/tests/steps/addToCartSteps.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 551569749
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click the 'Add to cart' button for a chosen item",
+            "match": {
+              "location": "src/tests/steps/addToCartSteps.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 29244459
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "the item should be added to my shopping cart, indicated by the shopping cart icon showing a '1'",
+            "match": {
+              "location": "src/tests/steps/addToCartSteps.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3419667
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 130395500
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "complete-a-purchase",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Complete a purchase",
+    "tags": [],
+    "uri": "src/tests/features/purchase.feature"
   }
 ]
