@@ -7,6 +7,7 @@ export class InventoryPage {
   readonly addToCartButton: Locator;
   readonly cartBadge: Locator;
   readonly inventoryItems: Locator;
+  public lastAddedItemName: string | undefined;
 
   constructor(page: Page) {
     this.page = page;
@@ -30,6 +31,10 @@ export class InventoryPage {
       // Select a random item
       const randomIndex = Math.floor(Math.random() * count);
       const randomItem = this.inventoryItems.nth(randomIndex);
+
+      // Get the name of the item and passing it outside of the function
+      const randomItemName = await randomItem.locator('.inventory_item_name').innerText();
+      this.lastAddedItemName = randomItemName;
 
       // Add random item to the cart
       const addToCartButton = randomItem.getByRole("button", { name: "Add to cart" });

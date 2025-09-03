@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 691596791
+              "duration": 828537834
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 531628042
+              "duration": 446487583
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 57092415
+              "duration": 61339916
             }
           },
           {
@@ -53,7 +53,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 77959125
+              "duration": 81420583
             }
           },
           {
@@ -66,7 +66,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4481208
+              "duration": 4528250
             }
           },
           {
@@ -79,7 +79,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 8015625
+              "duration": 5541874
             }
           },
           {
@@ -87,7 +87,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 149412375
+              "duration": 131734332
             }
           }
         ],
@@ -103,11 +103,11 @@
     "uri": "src/tests/features/login.feature"
   },
   {
-    "description": "User story 2:\nAs a logged-in user, I want to complete the purchase of an item from the product catalog so that I can receive my desired product.",
+    "description": "User story 2:\nAs a logged-in user, I want to add items to my shopping cart and review my selected items before checkout, so that I can ensure I am purchasing the correct products.",
     "elements": [
       {
         "description": "",
-        "id": "complete-a-purchase;user-adds-an-item-to-their-cart",
+        "id": "shopping-cart-management;user-adds-an-item-to-their-cart",
         "keyword": "Scenario",
         "line": 5,
         "name": "User adds an item to their cart",
@@ -117,7 +117,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 629450417
+              "duration": 656912000
             }
           },
           {
@@ -126,11 +126,11 @@
             "line": 6,
             "name": "I am on the product catalog page",
             "match": {
-              "location": "src/tests/steps/addToCartSteps.ts:9"
+              "location": "src/tests/steps/addToCartSteps.ts:8"
             },
             "result": {
               "status": "passed",
-              "duration": 506508833
+              "duration": 490094957
             }
           },
           {
@@ -139,11 +139,11 @@
             "line": 7,
             "name": "I click the 'Add to cart' button for a chosen item",
             "match": {
-              "location": "src/tests/steps/addToCartSteps.ts:13"
+              "location": "src/tests/steps/addToCartSteps.ts:12"
             },
             "result": {
               "status": "passed",
-              "duration": 56134583
+              "duration": 44058750
             }
           },
           {
@@ -152,11 +152,11 @@
             "line": 8,
             "name": "the item should be added to my shopping cart, indicated by the shopping cart icon showing a '1'",
             "match": {
-              "location": "src/tests/steps/addToCartSteps.ts:19"
+              "location": "src/tests/steps/addToCartSteps.ts:15"
             },
             "result": {
               "status": "passed",
-              "duration": 4554915
+              "duration": 3440875
             }
           },
           {
@@ -164,7 +164,86 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 131048874
+              "duration": 148265416
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "shopping-cart-management;user-checks-items-in-their-cart",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "User checks items in their cart",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 623139750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "I have an item in my shopping cart",
+            "match": {
+              "location": "src/tests/steps/checkoutSteps.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 542342166
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I click the shopping cart icon",
+            "match": {
+              "location": "src/tests/steps/checkoutSteps.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 86056040
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should be navigated to the 'Your Cart' page",
+            "match": {
+              "location": "src/tests/steps/checkoutSteps.ts:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1515875
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I should see the selected item listed in my cart",
+            "match": {
+              "location": "src/tests/steps/checkoutSteps.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1818459
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 125900499
             }
           }
         ],
@@ -172,11 +251,11 @@
         "type": "scenario"
       }
     ],
-    "id": "complete-a-purchase",
+    "id": "shopping-cart-management",
     "line": 1,
     "keyword": "Feature",
-    "name": "Complete a purchase",
+    "name": "Shopping Cart Management",
     "tags": [],
-    "uri": "src/tests/features/purchase.feature"
+    "uri": "src/tests/features/shoppingCart.feature"
   }
 ]

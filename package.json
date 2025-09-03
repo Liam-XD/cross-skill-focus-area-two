@@ -4,7 +4,8 @@
   "description": "Repository for the second focus area",
   "main": "index.js",
   "scripts": {
-    "cucumber": "cucumber-js --config config/cucumber.json"
+    "pretest": "ts-node src/setup/setupAuth.ts",
+    "test": "cucumber-js --config config/cucumber.json"
   },
   "keywords": [],
   "author": "",
