@@ -33,5 +33,4 @@ Then("I should be redirected to the product catalogue page", async () => {
 Then("I should see the product listings", async () => {
   inventoryPage = new InventoryPage(page);
   await expect(inventoryPage.inventoryList).toBeVisible();
-  await page.context().storageState({ path: authFile });
 });
