@@ -7,11 +7,8 @@ export class InventoryPage {
   readonly addToCartButton: Locator;
   readonly cartBadge: Locator;
   readonly inventoryItems: Locator;
-  readonly inventoryItemNames: Locator;
-  readonly inventoryItemPrices: Locator;
-  readonly addToCartButtons: Locator;
-  lastAddedItemName: string | null = null;
-  lastAddedItemPrice: string | null = null;
+  public lastAddedItemName: string | undefined;
+  public lastAddedItemPrice: number | undefined;
 
   constructor(page: Page) {
     this.page = page;
@@ -21,10 +18,7 @@ export class InventoryPage {
     });
     this.addToCartButton = page.getByRole("button", { name: "Add to cart" });
     this.cartBadge = page.locator(".shopping_cart_badge");
-    this.inventoryItems = page.locator('[data-test="inventory-item"]');
-    this.inventoryItemNames = page.locator('[data-test="inventory-item-name"]');
-    this.inventoryItemPrices = page.locator('[data-test="inventory-item-price"]');
-    this.addToCartButtons = page.locator('[data-test^="add-to-cart-"]');
+    this.inventoryItems = this.page.locator('.inventory_item');
   }
 
   async goto() {
@@ -32,11 +26,28 @@ export class InventoryPage {
   }
 
   async addRandomItemToCart() {
-    const itemCount = await this.inventoryItems.count();
-    const randomIndex = Math.floor(Math.random() * itemCount);
-    const randomItem = this.inventoryItems.nth(randomIndex);
-    this.lastAddedItemName = await randomItem.locator(this.inventoryItemNames).innerText();
-    this.lastAddedItemPrice = await randomItem.locator(this.inventoryItemPrices).innerText();
-    await randomItem.locator(this.addToCartButtons).click();
+    const count = await this.inventoryItems.count();
+
+    if (count > 0) {
+      // Select a random item
+      const randomIndex = Math.floor(Math.random() * count);
+      const randomItem = this.inventoryItems.nth(randomIndex);
+
+      // Get the name of the item and passing it outside of the function
+      const randomItemName = await randomItem.locator('.inventory_item_name').innerText();
+      const randomItemPrice = await randomItem.locator(".inventory_item_price").innerText();
+      this.lastAddedItemName = randomItemName;
+
+      // Cleaning the price string by removing the '$' sign and converting to a number
+      const itemPrice: number = parseFloat(randomItemPrice.replace(/[^\d.]/g, ''));
+      this.lastAddedItemPrice = itemPrice;
+
+      // Add random item to the cart
+      const addToCartButton = randomItem.getByRole("button", { name: "Add to cart" });
+      await addToCartButton.click();
+    } else {
+      // Error will propogate to wherever function is called
+      throw new Error('No inventory items were found on the page.');
+    }
   }
 }
