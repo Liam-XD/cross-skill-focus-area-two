@@ -7,17 +7,24 @@ export class InventoryPage {
   readonly addToCartButton: Locator;
   readonly cartBadge: Locator;
   readonly inventoryItems: Locator;
-  public lastAddedItemName: string | undefined;
+  readonly inventoryItemNames: Locator;
+  readonly inventoryItemPrices: Locator;
+  readonly addToCartButtons: Locator;
+  lastAddedItemName: string | null = null;
+  lastAddedItemPrice: string | null = null;
 
   constructor(page: Page) {
     this.page = page;
     this.inventoryList = page.locator('[data-test="inventory-list"]');
     this.onesieItem = page.locator(".inventory_item", {
       hasText: "Sauce Labs Onesie",
-    })
-    this.addToCartButton = page.getByRole("button", { name: "Add to cart" })
+    });
+    this.addToCartButton = page.getByRole("button", { name: "Add to cart" });
     this.cartBadge = page.locator(".shopping_cart_badge");
-    this.inventoryItems = this.page.locator('.inventory_item');
+    this.inventoryItems = page.locator('[data-test="inventory-item"]');
+    this.inventoryItemNames = page.locator('[data-test="inventory-item-name"]');
+    this.inventoryItemPrices = page.locator('[data-test="inventory-item-price"]');
+    this.addToCartButtons = page.locator('[data-test^="add-to-cart-"]');
   }
 
   async goto() {
@@ -25,23 +32,11 @@ export class InventoryPage {
   }
 
   async addRandomItemToCart() {
-    const count = await this.inventoryItems.count();
-
-    if (count > 0) {
-      // Select a random item
-      const randomIndex = Math.floor(Math.random() * count);
-      const randomItem = this.inventoryItems.nth(randomIndex);
-
-      // Get the name of the item and passing it outside of the function
-      const randomItemName = await randomItem.locator('.inventory_item_name').innerText();
-      this.lastAddedItemName = randomItemName;
-
-      // Add random item to the cart
-      const addToCartButton = randomItem.getByRole("button", { name: "Add to cart" });
-      await addToCartButton.click();
-    } else {
-      // Error will propogate to wherever function is called
-      throw new Error('No inventory items were found on the page.');
-    }
+    const itemCount = await this.inventoryItems.count();
+    const randomIndex = Math.floor(Math.random() * itemCount);
+    const randomItem = this.inventoryItems.nth(randomIndex);
+    this.lastAddedItemName = await randomItem.locator(this.inventoryItemNames).innerText();
+    this.lastAddedItemPrice = await randomItem.locator(this.inventoryItemPrices).innerText();
+    await randomItem.locator(this.addToCartButtons).click();
   }
 }
