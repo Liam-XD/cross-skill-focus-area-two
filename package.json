@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "pretest": "ts-node src/setup/setupAuth.ts",
-    "test": "cucumber-js --config config/cucumber.json"
+    "test": "cucumber-js src/tests/features --config config/cucumber.json",
+    "pretest:feature": "ts-node src/setup/setupAuth.ts",
+    "test:feature": "cucumber-js --config config/cucumber.json"
   },
   "keywords": [],
   "author": "",

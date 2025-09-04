@@ -1,5 +1,5 @@
 Feature: Complete a purchase
-User story 2:
+User story 3:
 As a logged-in user, I want to complete the purchase of an item from the product catalog so that I can receive my desired product.
   # Scenario: User initiates checkout process
   #   Given I am on the "Your Cart" page When I click the "Checkout" button

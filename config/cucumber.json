@@ -1,8 +1,5 @@
 {
     "default": {
-        "paths": [
-            "src/tests/features"
-        ],
         "dryRun": false,
         "format": [
             "progress-bar",
