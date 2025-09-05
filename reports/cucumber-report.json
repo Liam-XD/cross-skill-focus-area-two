@@ -1,356 +1,5 @@
 [
   {
-    "description": "User story 1: \nAs a returning user, I want to securely log in to the SauceDemo website so that I can access the product catalog and proceed with my shopping experience.",
-    "elements": [
-      {
-        "description": "",
-        "id": "user-login;successful-login-with-valid-credentials",
-        "keyword": "Scenario",
-        "line": 5,
-        "name": "Successful login with Valid Credentials",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 2678237666
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "I am on the login page",
-            "match": {
-              "location": "src/tests/steps/loginSteps.ts:15"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 635453875
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 7,
-            "name": "I enter valid credentials",
-            "match": {
-              "location": "src/tests/steps/loginSteps.ts:20"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 34407374
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 8,
-            "name": "I click the 'Login' button",
-            "match": {
-              "location": "src/tests/steps/loginSteps.ts:25"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 72961250
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "I should be redirected to the product catalogue page",
-            "match": {
-              "location": "src/tests/steps/loginSteps.ts:29"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 4956500
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 10,
-            "name": "I should see the product listings",
-            "match": {
-              "location": "src/tests/steps/loginSteps.ts:33"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2543332
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 137909749
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      }
-    ],
-    "id": "user-login",
-    "line": 1,
-    "keyword": "Feature",
-    "name": "User Login",
-    "tags": [],
-    "uri": "src/tests/features/login.feature"
-  },
-  {
-    "description": "User story 3:\nAs a logged-in user, I want to complete the purchase of an item from the product catalog so that I can receive my desired product.",
-    "elements": [
-      {
-        "description": "",
-        "id": "complete-a-purchase;user-initiates-checkout-process",
-        "keyword": "Scenario",
-        "line": 5,
-        "name": "User initiates checkout process",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 755290416
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "I am on the 'Your Cart' page",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:33"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 991006333
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 7,
-            "name": "I click the 'Checkout' button",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:41"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 63072916
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 8,
-            "name": "I should be navigated to the 'Checkout: Your Information' page",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:46"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1424750
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 145221166
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "complete-a-purchase;user-inputs-shipping-information",
-        "keyword": "Scenario",
-        "line": 10,
-        "name": "User inputs shipping information",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 764676333
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 11,
-            "name": "I am on the 'Checkout: Your Information' page",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:50"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 647384957
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 12,
-            "name": "I enter valid shipping information",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:62"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 14416834
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 13,
-            "name": "I click the 'Continue' button",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:66"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 70496584
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "I should be navigated to the 'Checkout: Overview' page",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:70"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1581417
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 136128666
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "complete-a-purchase;user-successfully-completes-their-order",
-        "keyword": "Scenario",
-        "line": 16,
-        "name": "User successfully completes their order",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 738418583
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 17,
-            "name": "I am on the 'Checkout: Overview' page",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:74"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 748697667
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 18,
-            "name": "I review the order summary",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:88"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1735332
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 19,
-            "name": "I click the 'Finish' button",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:93"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 68887708
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 20,
-            "name": "I should be navigated to the 'Checkout: Complete!' page",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:97"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3469291
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 21,
-            "name": "I should see a confirmation message",
-            "match": {
-              "location": "src/tests/steps/checkoutSteps.ts:102"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2755708
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 127478791
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      }
-    ],
-    "id": "complete-a-purchase",
-    "line": 1,
-    "keyword": "Feature",
-    "name": "Complete a purchase",
-    "tags": [],
-    "uri": "src/tests/features/purchase.feature"
-  },
-  {
     "description": "User story 2:\nAs a logged-in user, I want to add items to my shopping cart and review my selected items before checkout, so that I can ensure I am purchasing the correct products.",
     "elements": [
       {
@@ -365,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 757642167
+              "duration": 2846381792
             }
           },
           {
@@ -378,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 427700666
+              "duration": 662824791
             }
           },
           {
@@ -391,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 34853791
+              "duration": 39573583
             }
           },
           {
@@ -404,7 +53,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4895540
+              "duration": 34279833
             }
           },
           {
@@ -412,7 +61,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 145946083
+              "duration": 159245417
             }
           }
         ],
@@ -431,7 +80,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 772849582
+              "duration": 823521499
             }
           },
           {
@@ -444,7 +93,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 473934500
+              "duration": 581562541
             }
           },
           {
@@ -457,7 +106,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 66816749
+              "duration": 92229499
             }
           },
           {
@@ -470,7 +119,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1550083
+              "duration": 1632250
             }
           },
           {
@@ -483,7 +132,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1773459
+              "duration": 2287832
             }
           },
           {
@@ -491,7 +140,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 124343291
+              "duration": 133103957
             }
           }
         ],

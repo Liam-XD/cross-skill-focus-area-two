@@ -4,6 +4,13 @@
 
 This repository contains an automated testing framework for the [SauceDemo](https://www.saucedemo.com/) e-commerce website. It is built using TypeScript, Playwright, and Cucumber for Behavior-Driven Development (BDD).
 
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Test Reports](#test-reports)
+- [Project Structure](#project-structure)
+
 ## Prerequisites
 
 Before you begin, ensure you have the following installed on your system:
