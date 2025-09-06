@@ -8,9 +8,20 @@ This repository contains an automated testing framework for the [SauceDemo](http
 
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
+    - [Clone the Repository](#1-clone-the-repository)
+    - [Install Dependencies](#2-install-dependencies)
+    - [Set Up Environment Variables](#3-set-up-environment-variables)
+- [Running the Tests](#running-the-tests)
+    - [Headed or Headless](#headed-or-headless)
+    - [Run All Tests](#run-all-tests)
+    - [Run a Specific Feature](#run-a-specific-feature)
 - [Test Reports](#test-reports)
 - [Project Structure](#project-structure)
-- [A note on BDD](#a-note-on-bdd)
+- [A Note on BDD](#a-note-on-bdd)
+    - [The Feature file](#the-feature-file)
+    - [The Step Definition file](#the-step-definition-file)
+    - [Interaction](#interaction)
+    - [Useful command](#useful-command)
 
 ## Prerequisites
 
@@ -58,10 +69,12 @@ The project uses a `.env` file to manage credentials for logging in.
 
 The project uses `npm` scripts defined in [`package.json`](package.json) to execute the tests.
 
-Within the config/.env file the headless state of the browser is set. This can be set to true for headless mode and false for headed/visible browser mode.
+### Headed or Headless
+
+Within the [`config/.env`](config/env.ts) file the headless state of the browser is set. This can be set to true for headless mode and false for headed/visible browser mode.
 
 
-#### Run All Tests
+### Run All Tests
 
 To run the entire test suite, use the following command. This command first runs a pre-test script to handle authentication and then executes all feature files.
 
@@ -69,7 +82,7 @@ To run the entire test suite, use the following command. This command first runs
 npm test
 ```
 
-#### Run a Specific Feature
+### Run a Specific Feature
 
 To run a single feature file, use the `test:feature` script followed by the path to the feature file.
 
@@ -123,13 +136,14 @@ The src file is the key location of the automation framework.
 
 ## A Note on BDD
 The tests in this repository are written in Cucumber gherkin syntax.
-Scenarios are added in the feature files found within src/test/features while the step definitions of how to test those steps are implemented in the src/tests/steps file.
+Scenarios are added in the feature files found within [`src/test/features`](src/test/features).<br>
+The step definitions of how to test those steps are implemented in the [`src/tests/steps`](src/tests/steps) file.
 
 ### The Feature file
 The feature files should be readable to anyone on the team, including non-technical members. It will explain the test case but will contain no code.
 
 ### The Step Definition file
-This is where the code that executes the behaviour described in the feature file lives.
+This is where the code that executes the behaviour described in the feature file lives.<br>
 Each line in the feature file will be linked to a block of code in the definition file. This is where the playwright test framework is ued to interact with the browser and execute the tests.
 
 ### Interaction
@@ -138,7 +152,7 @@ Once found, playwright will execute the code within that function. This process 
 
 If a step is written in the feature file but has no matching code in a step definition file, when running the test, Cucumber will fail the test and print out snipets for any steps that are defined in the .feature files but a matching step definition could not be found. 
 
-### Useful command
+### Conduct a dryrun
 If you want to quickly find missing or unimplemented steps and/or confirm that the feature files and step definitions within this file are correctly linked you can run the following command:
 
 ```sh

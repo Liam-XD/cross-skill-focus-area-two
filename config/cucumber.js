@@ -2,6 +2,7 @@
 module.exports = {
   default: {
     dryRun: false,
+    retry: 2,
     format: [
       'progress-bar',
       'summary',
