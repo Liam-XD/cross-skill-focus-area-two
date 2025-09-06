@@ -21,7 +21,7 @@ This repository contains an automated testing framework for the [SauceDemo](http
     - [The Feature file](#the-feature-file)
     - [The Step Definition file](#the-step-definition-file)
     - [Interaction](#interaction)
-    - [Useful command](#useful-command)
+    - [Conduct a Dry Run](#conduct-a-dry-run)
 
 ## Prerequisites
 
@@ -152,7 +152,7 @@ Once found, playwright will execute the code within that function. This process 
 
 If a step is written in the feature file but has no matching code in a step definition file, when running the test, Cucumber will fail the test and print out snipets for any steps that are defined in the .feature files but a matching step definition could not be found. 
 
-### Conduct a dryrun
+### Conduct a Dry Run
 If you want to quickly find missing or unimplemented steps and/or confirm that the feature files and step definitions within this file are correctly linked you can run the following command:
 
 ```sh
