@@ -57,6 +57,9 @@ The project uses a `.env` file to manage credentials for logging in.
 
 The project uses `npm` scripts defined in [`package.json`](package.json) to execute the tests.
 
+Within the config/.env file the headless state of the browser is set. This can be set to true for headless mode and false for headed/visible browser mode.
+
+
 #### Run All Tests
 
 To run the entire test suite, use the following command. This command first runs a pre-test script to handle authentication and then executes all feature files.

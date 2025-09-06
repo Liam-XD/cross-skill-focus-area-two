@@ -1,5 +1,6 @@
 import { Before, After } from "@cucumber/cucumber";
 import { chromium, Page, Browser, BrowserContext } from "@playwright/test";
+import { headless } from "../../config/env";
 
 let browser: Browser;
 let context: BrowserContext;
@@ -9,7 +10,7 @@ const authFile = 'playwright/.auth/user.json';
 
 Before(async () => {
   // Initialising browser and context
-  browser = await chromium.launch({ headless: false });
+  browser = await chromium.launch({ headless });
   context = await browser.newContext({ storageState: authFile });
   page = await context.newPage();
 });
