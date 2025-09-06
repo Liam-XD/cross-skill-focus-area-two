@@ -27,8 +27,7 @@ This repository contains an automated testing framework for the [SauceDemo](http
 
 Before you begin, ensure you have the following installed on your system:
 *   [Node.js](https://nodejs.org/)
-*   Cucumber extension for VSCode: <br>
-https://marketplace.visualstudio.com/items?itemName=CucumberOpen.cucumber-official 
+*   [`Cucumber extension for VSCode`](https://marketplace.visualstudio.com/items?itemName=CucumberOpen.cucumber-official)
 
 ## Getting Started
 
@@ -53,16 +52,18 @@ npm install
 
 The project uses a `.env` file to manage credentials for logging in.
 
-1.  Create a new file named `.env` inside the `config/` directory.
+1.  If it doesn't already exist, create a new file named `.env` inside the `config/` directory.
 2.  Add the following content to `config/.env`:
 
     ```env
     // filepath: config/.env
     USERNAME=[username]
     PASSWORD=[password]
+    BASE_URL=https://www.saucedemo.com
+    HEADLESS=[true or false]
     ```
 
-    These credentials are used in the authentication setup script ([`src/setup/setupAuth.ts`](src/setup/setupAuth.ts)).
+    These credentials are used in the authentication setup script ([`src/setup/setupAuth.ts`](src/setup/setupAuth.ts)).<br>
     Note: The necessary credentials can be found on the [SauceDemo](https://www.saucedemo.com/) website.
 
 ## Running the Tests
@@ -92,28 +93,25 @@ npm run test:feature -- src/tests/features/login.feature
 
 ## Test Reports
 
-After a test run, Cucumber generates test reports in the `reports/` directory. You can view a detailed HTML report by opening [`reports/cucumber-report.html`](reports/cucumber-report.html) in a browser. 
+After a test run, Cucumber generates test reports in the `reports/` directory. You can view a detailed HTML report by opening the report in a browser. 
 
-A JSON report is also available at [`reports/cucumber-report.json`](reports/cucumber-report.json).
+A JSON report is also available under the `reports/` directory. 
 
 ## Project Structure
 
-I've aimed to have this laid out as logically as possible. 
-The config directory holds files for any manual configuration setup. Eg, environmenbt variables.
+I've aimed to have this laid out as logically as possible.<br> 
+The config directory holds files for any manual configuration setup. Eg, environment variables.<br>
 
+The Playwright file contains a user.json file. This contains any session details, suchas cookies, which are saved to it while running a setup script.<br>
 
-The Playwright file contains a user.json file. This contains any session details, suchas cookies, which are saved to it while running a setup script.
+The reports file is where any execution reports will be stored after running a test or tests.<br>
 
+The src file is the key location of the automation framework:
+- The [`page-objects folder`](src/page-objects)holds the Page Object Models which represent different pages of the application.
 
-The reports file is where any execution reports will be stored after running a test or tests.
+- The [`setup folder`](src/setup)contains scripts for setting up the test environment, such as the browser instance and the pre-test login process so we have an authenticated state that doesn't require us to login for every individual test.
 
-
-The src file is the key location of the automation framework.
-- The page-objects  folder holds the Page Object Models which represent different pages of the application.
-
-- The setup folder contains scripts for setting up the test environment, such as the browser instance and the pre-test login process so we have an authenticated state that doesn't require us to login for every individual test.
-
-- Tests is where the test definitions are stored.
+- The [`tests folder`](src/tests) is where the test definitions are stored.
    - The feature files are in BDD format and gherking language to describe the behaviours under test.
    - The Steps files are where the code that implements the steps describes in the feature files live. These are linked so you can cmd+click on a feature and it will direct you to the test step that executes it.
 
