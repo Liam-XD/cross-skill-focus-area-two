@@ -1,16 +1,8 @@
 # Ignore environment variables file
 config/.env
 
-# Ignore Cucumber reports
-reports/cucumber-report.html
-reports/cucumber-report.json
-
-# Playwright
+# Ignore Node modules
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
 
 # Ignore authentication files
 playwright/.auth/
