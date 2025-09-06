@@ -7,10 +7,14 @@ import dotenv from "dotenv";
 let loginPage: LoginPage;
 dotenv.config({ path: path.resolve(__dirname, "../../config/.env") });
 
-const USERNAME = process.env.USERNAME;
-const PASSWORD = process.env.PASSWORD;
+const username = process.env.USERNAME;
+const password = process.env.PASSWORD;
+const baseUrl = process.env.BASE_URL;
+if (!baseUrl) {
+    throw new Error("BASE_URL is not set in the .env file. Please check your config/.env file.");
+}
 
-if (!USERNAME || !PASSWORD) {
+if (!username || !password) {
     throw new Error("Username or password is not set in the .env file. Please check your config/.env file.");
 }
 
@@ -18,7 +22,7 @@ if (!USERNAME || !PASSWORD) {
     const browser = await chromium.launch();
     const context = await browser.newContext();
     const page = await context.newPage();
-    loginPage = new LoginPage(page);
+    loginPage = new LoginPage(page, baseUrl as string, username, password);
 
     await loginPage.goto();
     await loginPage.login();

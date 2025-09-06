@@ -2,11 +2,11 @@ import { Given, When, Then } from "@cucumber/cucumber";
 import { expect } from "@playwright/test";
 import { page } from "../../setup/browserSetup";
 import { InventoryPage } from "../../page-objects/inventory-page.pom";
-
+import { baseUrl } from "../../../config/env";
 let inventoryPage: InventoryPage;
 
 Given("I am on the product catalog page", async () => {
-  inventoryPage = new InventoryPage(page);
+  inventoryPage = new InventoryPage(page, baseUrl);
   await inventoryPage.goto()
 });
 When("I click the 'Add to cart' button for a chosen item", async () => {

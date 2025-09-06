@@ -4,13 +4,13 @@ import { page } from "../../setup/browserSetup";
 import { InventoryPage } from "../../page-objects/inventory-page.pom";
 import { CartPage } from "../../page-objects/cart-page.pom";
 import { CheckoutPage } from "../../page-objects/checkout-page.pom";
-
-let inventoryPage: InventoryPage;
+import { baseUrl } from "../../../config/env";
 let cartPage: CartPage;
 let checkoutPage: CheckoutPage;
+let inventoryPage: InventoryPage;
 
 Given("I have an item in my shopping cart", async () => {
-    inventoryPage = new InventoryPage(page);
+    inventoryPage = new InventoryPage(page, baseUrl);
     await inventoryPage.goto()
     await inventoryPage.addRandomItemToCart()
     await expect(inventoryPage.cartBadge).toHaveText("1");
@@ -31,7 +31,7 @@ Then("I should see the selected item listed in my cart", async () => {
 })
 
 Given("I am on the 'Your Cart' page", async () => {
-    inventoryPage = new InventoryPage(page);
+    inventoryPage = new InventoryPage(page, baseUrl);
     await inventoryPage.goto()
     await inventoryPage.addRandomItemToCart()
     await inventoryPage.cartBadge.click();
@@ -48,7 +48,7 @@ Then("I should be navigated to the 'Checkout: Your Information' page", async () 
 });
 
 Given("I am on the 'Checkout: Your Information' page", async () => {
-    inventoryPage = new InventoryPage(page);
+    inventoryPage = new InventoryPage(page, baseUrl);
     cartPage = new CartPage(page);
     checkoutPage = new CheckoutPage(page);
 
@@ -72,7 +72,7 @@ Then("I should be navigated to the 'Checkout: Overview' page", async () => {
 });
 
 Given("I am on the 'Checkout: Overview' page", async () => {
-    inventoryPage = new InventoryPage(page);
+    inventoryPage = new InventoryPage(page, baseUrl);
     cartPage = new CartPage(page);
     checkoutPage = new CheckoutPage(page);
 

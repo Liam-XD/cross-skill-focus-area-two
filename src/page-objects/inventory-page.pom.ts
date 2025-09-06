@@ -2,6 +2,7 @@ import { Page, Locator } from "playwright";
 
 export class InventoryPage {
   readonly page: Page;
+  readonly baseUrl: string;
   readonly inventoryList: Locator;
   readonly onesieItem: Locator;
   readonly addToCartButton: Locator;
@@ -10,8 +11,9 @@ export class InventoryPage {
   public lastAddedItemName: string | undefined;
   public lastAddedItemPrice: number | undefined;
 
-  constructor(page: Page) {
+  constructor(page: Page, baseUrl: string) {
     this.page = page;
+    this.baseUrl = baseUrl;
     this.inventoryList = page.locator('[data-test="inventory-list"]');
     this.onesieItem = page.locator(".inventory_item", {
       hasText: "Sauce Labs Onesie",
@@ -22,7 +24,7 @@ export class InventoryPage {
   }
 
   async goto() {
-    await this.page.goto("https://www.saucedemo.com/inventory.html");
+    await this.page.goto(this.baseUrl + "/inventory.html");
   }
 
   async addRandomItemToCart() {
