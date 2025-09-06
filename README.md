@@ -10,6 +10,7 @@ This repository contains an automated testing framework for the [SauceDemo](http
 - [Getting Started](#getting-started)
 - [Test Reports](#test-reports)
 - [Project Structure](#project-structure)
+- [A note on BDD](#a-note-on-bdd)
 
 ## Prerequisites
 
@@ -103,8 +104,6 @@ The src file is the key location of the automation framework.
    - The feature files are in BDD format and gherking language to describe the behaviours under test.
    - The Steps files are where the code that implements the steps describes in the feature files live. These are linked so you can cmd+click on a feature and it will direct you to the test step that executes it.
 
-
-
 ```
 .
 ├── config/
@@ -122,4 +121,27 @@ The src file is the key location of the automation framework.
 └── package.json          # Project dependencies and scripts
 ```
 
-Feedback always welcome, thanks!
+## A Note on BDD
+The tests in this repository are written in Cucumber gherkin syntax.
+Scenarios are added in the feature files found within src/test/features while the step definitions of how to test those steps are implemented in the src/tests/steps file.
+
+### The Feature file
+The feature files should be readable to anyone on the team, including non-technical members. It will explain the test case but will contain no code.
+
+### The Step Definition file
+This is where the code that executes the behaviour described in the feature file lives.
+Each line in the feature file will be linked to a block of code in the definition file. This is where the playwright test framework is ued to interact with the browser and execute the tests.
+
+### Interaction
+Cucumber will read the steps defined in the .feature file and then look through all the step definitions for a named function that matches the text pattern.
+Once found, playwright will execute the code within that function. This process will be repeated for each step in the scenario defined in the .feature file.
+
+If a step is written in the feature file but has no matching code in a step definition file, when running the test, Cucumber will fail the test and print out snipets for any steps that are defined in the .feature files but a matching step definition could not be found. 
+
+### Useful command
+If you want to quickly find missing or unimplemented steps and/or confirm that the feature files and step definitions within this file are correctly linked you can run the following command:
+
+```sh
+npm run dryrun
+```
+This will save time by not running the underlying code in the steps folder and just check the step coverage.
