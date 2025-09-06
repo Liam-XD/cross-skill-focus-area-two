@@ -17,10 +17,6 @@ module.exports = {
     ],
     requireModule: [
       'ts-node/register'
-    ],
-    // Add custom parameters here
-    worldParameters: {
-      baseUrl: process.env.BASE_URL || 'https://www.createfuture.com'
-    }
+    ]
   }
 };
